@@ -147,3 +147,4 @@ Zobaczmy, jak powyższe historie przekładają się na działanie naszej aplikac
   - Compose ponownie rysuje (Rekomponuje) tylko te elementy, które zależą od listy.
   - Saldo aktualizuje się do 5.00 Rubli, a na liście pojawia się nowa, czerwona karta.
 
+## Test webhooka elo żelo
