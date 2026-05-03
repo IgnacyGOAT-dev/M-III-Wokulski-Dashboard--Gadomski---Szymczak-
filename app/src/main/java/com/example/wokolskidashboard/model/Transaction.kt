@@ -4,4 +4,9 @@ enum class TransactionType {
     INCOME, EXPENSE
 }
 
-data class Transaction(val name: String, var price: Int, val type: TransactionType)
+data class Transaction(
+    val name: String,
+    val amount: Double,
+    val type: TransactionType,
+    val isOptional: Boolean = false
+)
