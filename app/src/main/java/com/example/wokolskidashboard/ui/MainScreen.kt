@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.example.wokolskidashboard.model.Transaction
 import com.example.wokolskidashboard.model.TransactionType
 import com.example.wokolskidashboard.ui.components.ExpenseForm
-
+import com.example.wokolskidashboard.ui.components.TransactionCard
 
 
 @Composable
@@ -66,16 +66,8 @@ fun MainScreen(modifier: Modifier = Modifier){
         LazyColumn(
             modifier = Modifier.weight(1f)
         ) {
-            items(transactions) { transaction ->
-                Text(
-                    text = "${transaction.name}: ${
-                        if (transaction.type == TransactionType.EXPENSE) "-" else "+"
-                    }${transaction.amount}",
-
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 4.dp)
-                )
+            items(transactions){ transaction ->
+                TransactionCard(transaction)
             }
         }
     }
