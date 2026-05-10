@@ -41,7 +41,7 @@ fun MainScreen(modifier: Modifier = Modifier){
             .padding(16.dp)
     ) {
         Text(
-            text = "Saldo: $balance",
+            text = "Saldo: ${balance} Rubli",
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center
@@ -82,7 +82,7 @@ fun MainScreen(modifier: Modifier = Modifier){
         LazyColumn(
             modifier = Modifier.weight(1f)
         ) {
-            items(transactions){ transaction ->
+            items(transactions, key = { it.hashCode() }){ transaction ->
                 TransactionCard(transaction)
             }
         }

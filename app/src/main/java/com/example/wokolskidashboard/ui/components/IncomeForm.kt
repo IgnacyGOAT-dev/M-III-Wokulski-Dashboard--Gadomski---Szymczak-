@@ -5,7 +5,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -39,6 +44,7 @@ fun IncomeForm(
             value = name,
             onValueChange = { name = it },
             label = { Text("Cel przychodu") },
+            leadingIcon = { Icon(Icons.Default.Edit, contentDescription = null) },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -48,6 +54,7 @@ fun IncomeForm(
             value = amount,
             onValueChange = { amount = it },
             label = { Text("Kwota") },
+            leadingIcon = { Icon(Icons.Default.KeyboardArrowUp, contentDescription = null) },
             modifier = Modifier.fillMaxWidth()
         )
 
