@@ -56,6 +56,11 @@ fun IncomeForm(
         Button(
             onClick = {
                 val parsedAmount = amount.toDoubleOrNull()
+                if (name.isNotBlank() && parsedAmount != null && parsedAmount > 0) {
+                    onAddIncome(name, parsedAmount)
+                    name = ""
+                    amount = ""
+                }
             },
             modifier = Modifier.fillMaxWidth()
         ) {
