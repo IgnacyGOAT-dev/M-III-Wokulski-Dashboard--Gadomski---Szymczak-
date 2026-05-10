@@ -11,7 +11,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Switch
@@ -44,6 +49,7 @@ fun ExpenseForm(onAddExpense: (name: String, amount: Double, isOptional: Boolean
                 name = it
             },
             label = { Text("Cel wydatku") },
+            leadingIcon = { Icon(Icons.Default.Edit, contentDescription = null) },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -55,6 +61,7 @@ fun ExpenseForm(onAddExpense: (name: String, amount: Double, isOptional: Boolean
                 amount = it
             },
             label = { Text("Kwota") },
+            leadingIcon = { Icon(Icons.Default.KeyboardArrowDown, contentDescription = null) },
             modifier = Modifier.fillMaxWidth()
         )
 

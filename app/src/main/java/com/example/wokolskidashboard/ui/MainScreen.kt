@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.example.wokolskidashboard.model.Transaction
 import com.example.wokolskidashboard.model.TransactionType
 import com.example.wokolskidashboard.ui.components.ExpenseForm
+import com.example.wokolskidashboard.ui.components.IncomeForm
 import com.example.wokolskidashboard.ui.components.TransactionCard
 
 
@@ -40,10 +41,25 @@ fun MainScreen(modifier: Modifier = Modifier){
             .padding(16.dp)
     ) {
         Text(
-            text = "Saldo: $balance",
+            text = "Saldo: ${balance} Rubli",
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        IncomeForm(
+            onAddIncome = { name, amount ->
+            transactions.add(
+                Transaction(
+                    name = name,
+                    amount = amount,
+                    type= TransactionType.INCOME,
+                    isOptional = false
+                )
+            )
+        }
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -66,7 +82,7 @@ fun MainScreen(modifier: Modifier = Modifier){
         LazyColumn(
             modifier = Modifier.weight(1f)
         ) {
-            items(transactions){ transaction ->
+            items(transactions, key = { it.hashCode() }){ transaction ->
                 TransactionCard(transaction)
             }
         }
